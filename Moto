@@ -1,0 +1,31 @@
+package com.mycompany.simulacaoveiculos;
+
+public class Moto extends Veiculo {
+
+    private int cilindradas;
+    public Moto(String marca,
+                String modelo,
+                String placa,
+                int velocidade,
+                int cilindradas) {
+        super(marca,
+              modelo,
+              placa,
+              velocidade);
+        this.cilindradas = cilindradas;
+    }
+    @Override
+    public double calcularConsumo() {
+        return 25.0; 
+    }
+    @Override
+    public void interagir(Veiculo outro) {
+
+        System.out.println(
+                "Moto "
+                + getModelo()
+                + " passou rapidamente por "
+                + outro.getModelo()
+        );
+    }
+}
