@@ -1,0 +1,30 @@
+package com.mycompany.simulacaoveiculos;
+
+public class Caminhao extends Veiculo {
+    private int capacidadeCarga;
+    public Caminhao(String marca,
+                    String modelo,
+                    String placa,
+                    int velocidade,
+                    int capacidadeCarga) {
+        super(marca,
+              modelo,
+              placa,
+              velocidade);
+        this.capacidadeCarga =
+                capacidadeCarga;
+    }
+    @Override
+    public double calcularConsumo() {
+        return 5.0;
+    }
+    @Override
+    public void interagir(Veiculo outro) {
+        System.out.println(
+                "Caminhão "
+                + getModelo()
+                + " segue lentamente atrás de "
+                + outro.getModelo()
+        );
+    }
+}
