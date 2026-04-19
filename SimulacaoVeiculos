@@ -1,0 +1,53 @@
+package com.mycompany.simulacaoveiculos;
+
+public class SimulacaoVeiculos {
+    public static void main(String[] args) {
+        SimuladorDeTrafego sim =
+                new SimuladorDeTrafego(5);
+        Carro carro =
+                new Carro(
+                        "Toyota",
+                        "Corolla",
+                        "ABC1234",
+                        0,
+                        4
+                );
+        Moto moto =
+                new Moto(
+                        "Honda",
+                        "CG160",
+                        "XYZ5678",
+                        0,
+                        160
+                );
+        Caminhao caminhao =
+                new Caminhao(
+                        "Volvo",
+                        "FH",
+                        "TRK9999",
+                        0,
+                        20
+                );
+        carro.abastecer(40);
+        moto.abastecer(15, "Gasolina");
+        caminhao.abastecer(100, "Diesel");
+        sim.adicionarVeiculo(carro);
+        sim.adicionarVeiculo(moto);
+        sim.adicionarVeiculo(caminhao);
+        sim.simularInteracoes();
+        sim.exibirConsumos();
+        Carro outroCarro =
+                new Carro(
+                        "Toyota",
+                        "Corolla",
+                        "ABC1234",
+                        0,
+                        4
+                );
+        if (carro.equals(outroCarro)) {
+            System.out.println(
+                    "Veículos iguais (mesma placa)."
+            );
+        }
+    }
+}
