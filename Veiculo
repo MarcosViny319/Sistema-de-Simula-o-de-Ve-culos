@@ -1,0 +1,90 @@
+package com.mycompany.simulacaoveiculos;
+
+import java.util.Objects;
+
+public class Veiculo {
+    private String marca;
+    private String modelo;
+    private String placa;
+    private int velocidade;
+    private double combustivel;
+    public Veiculo(String marca,
+                   String modelo,
+                   String placa,
+                   int velocidade) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.placa = placa;
+        this.velocidade = velocidade;
+        this.combustivel = 0;
+    }
+    public String getMarca() {
+        return marca;
+    }
+    public String getModelo() {
+        return modelo;
+    }
+    public String getPlaca() {
+        return placa;
+    }
+    public int getVelocidade() {
+        return velocidade;
+    }
+    public void setVelocidade(int velocidade) {
+        this.velocidade = velocidade;
+    }
+    public void interagir(Veiculo outro) {
+        System.out.println(
+                this.modelo +
+                " está interagindo com "
+                + outro.modelo
+        );
+    }
+    public void interagir(Caminhao c) {
+        System.out.println(
+                this.modelo +
+                " mantém distância segura do caminhão "
+                + c.getModelo()
+        );
+    }
+    public void abastecer(double litros) {
+        combustivel += litros;
+        System.out.println(
+                modelo +
+                " abastecido com "
+                + litros +
+                " litros."
+        );
+    }
+    public void abastecer(double litros,
+                          String tipoCombustivel) {
+        combustivel += litros;
+        System.out.println(
+                modelo +
+                " abastecido com "
+                + litros +
+                " litros de "
+                + tipoCombustivel
+        );
+    }
+    public double calcularConsumo() {
+        return 15.0; 
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null ||
+            getClass() != obj.getClass())
+            return false;
+        Veiculo v = (Veiculo) obj;
+        return Objects.equals(
+                placa,
+                v.placa
+        );
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(placa);
+    }
+}
